@@ -1,6 +1,6 @@
 # Phishing Email Detection with Multimodal Deep Learning
 
-> **ENPM703 — Fundamentals of AI and Deep Learning | Fall 2025 | Group 3**
+> **ENPM703 — Fundamentals of AI and Deep Learning | Fall 2025**
 
 A dual-tower fusion deep learning system that detects phishing emails by jointly analyzing **email text**, **embedded brand logos**, and **engineered metadata** — achieving **99.45% accuracy** and **AUC 0.999** on a balanced dataset of 76,346 emails.
 
@@ -170,6 +170,14 @@ Phishing-Email-Detection-Multimodal-Deep-Learning/
 │   ├── best_custom_cnn_image_custom.pth# Image specialist weights (~31 MB)    [git-lfs]
 │   └── best_fusion_model.pth           # Final fusion model weights (~137 MB) [git-lfs]
 │
+├── docs/
+│   ├── Project_Report.pdf              # Full project report
+│   ├── Architecture_Report.pdf         # System architecture report
+│   ├── Presentation.pdf                # Project presentation slides
+│   ├── Contribution_Report.pdf         # Team contribution report
+│   ├── Presentation_Recording.mp4      # Presentation recording
+│   └── Demo_Recording.mp4              # Live demo recording
+│
 ├── requirements.txt
 ├── .gitattributes                      # git-lfs tracking rules
 ├── .gitignore
@@ -331,14 +339,14 @@ Upload any `.html` email file to receive an instant phishing verdict with confid
 
 ## Team
 
-**Group 3 — University of Maryland | ENPM703 Fall 2025**
+**University of Maryland | ENPM703 Fall 2025**
 
-| Name | Role |
-|---|---|
-| Vishal Patil | Image tower, fusion model architecture |
-| Akash Vora | Text tower, data pipeline |
-| Srihari Narayan | Fusion classifier, metadata engineering |
-| Anila Sai Namburi | Dataset curation, deployment |
+| Name |
+|---|
+| [Vishal Patil](https://github.com/VishalPatil18) |
+| [Akash Vora](https://github.com/akashsv01) |
+| [Srihari Narayan](https://github.com/Srihari-Narayan) |
+| [Sai Anila Namburi](https://github.com/madhu-anila) |
 
 ---
 
