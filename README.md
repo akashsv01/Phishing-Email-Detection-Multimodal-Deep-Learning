@@ -339,20 +339,17 @@ Upload any `.html` email file to receive an instant phishing verdict with confid
 
 ## Team
 
-**University of Maryland | ENPM703 Fall 2025**
-
-| Name |
-|---|
-| [Vishal Patil](https://github.com/VishalPatil18) |
-| [Akash Vora](https://github.com/akashsv01) |
-| [Srihari Narayan](https://github.com/Srihari-Narayan) |
-| [Sai Anila Namburi](https://github.com/madhu-anila) |
-
+- [Vishal Patil](https://github.com/VishalPatil18)
+- [Akash S Vora](https://github.com/akashsv01)
+- [Srihari Narayan](https://github.com/Srihari-Narayan)
+- [Sai Anila Namburi](https://github.com/madhu-anila)
 ---
 
 ## References
 
-- OpenLogo Dataset — Queen Mary University of London
-- CEAS 2008 Spam Filtering Challenge
-- Enron Email Dataset (CMU)
-- PyTorch — [pytorch.org](https://pytorch.org)
+- OpenLogo Dataset — Queen Mary University of London  
+  https://qmul-openlogo.github.io/
+- CEAS 2008 Spam Filtering Challenge  
+- Phishing Email Dataset — Naser Abdullah Alam  
+  https://www.kaggle.com/datasets/naserabdullahalam/phishing-email-dataset
+- PyTorch — https://pytorch.org
