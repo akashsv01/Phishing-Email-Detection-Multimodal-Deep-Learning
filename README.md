@@ -136,22 +136,22 @@ Text length, subject length, body length, URL count, shortened-URL flag, suspici
 Phishing-Email-Detection-Multimodal-Deep-Learning/
 │
 ├── notebooks/                              # Training notebooks — run in order
-│   ├── phase1_text_specialist_cnn.ipynb          # Phase 1A: Train text CNN
-│   ├── phase1_image_specialist_cnn.ipynb         # Phase 1B: Train image CNN (custom)
-│   ├── phase1_image_resnet18_baseline.ipynb      # Phase 1B alt: ResNet18 comparison
-│   ├── phase2_multimodal_data_integration.ipynb  # Phase 2: Build unified dataset
-│   ├── phase3_fusion_model_training.ipynb        # Phase 3: Train dual-tower fusion
+│   ├── Final_CNN_Text_1.ipynb                    # Phase 1A: Train text CNN specialist
+│   ├── Final_CNN_Images_Custom.ipynb             # Phase 1B: Train image CNN (custom)
+│   ├── Final_CNN_Images_Resnet18.ipynb           # Phase 1B alt: ResNet18 comparison
+│   ├── dual_tower_text_features.ipynb            # Phase 2: Build unified multimodal dataset
+│   ├── train_fusion3.ipynb                       # Phase 3: Train dual-tower fusion model
 │   └── baselines/
-│       ├── text_knn_baseline.ipynb               # KNN baseline
+│       ├── Final_KNN_Text.ipynb                  # KNN baseline
 │       └── text_tower_knn.ipynb                  # KNN text tower variant
 │
 ├── src/                                    # Reusable Python modules
-│   ├── fusion_models.py        # DualTowerFusionModel, TextFeatureExtractor, ImageFeatureExtractor
-│   ├── fusion_dataset.py       # PyTorch Dataset for multimodal training
-│   ├── brand_extractor.py      # Extract brand names from email text
-│   ├── brand_logo_mapper.py    # Map brand names to logo file paths
-│   ├── build_brand_index.py    # Build brand→images JSON index
-│   ├── email_ratio.py          # Email dataset balance utilities
+│   ├── fusion_models.py          # DualTowerFusionModel, TextFeatureExtractor, ImageFeatureExtractor
+│   ├── fusion_dataset_v2.py      # PyTorch Dataset for multimodal training
+│   ├── brand_extractor.py        # Extract brand names from email text
+│   ├── brand_logo_mapper.py      # Map brand names to logo file paths
+│   ├── build_brand_index.py      # Build brand→images JSON index
+│   ├── email_ratio.py            # Email dataset balance utilities
 │   └── __init__.py
 │
 ├── inference/
@@ -222,7 +222,7 @@ Run the notebooks in order. Each phase produces artifacts consumed by the next.
 
 #### 1A. Text Specialist CNN
 
-**Notebook:** `notebooks/phase1_text_specialist_cnn.ipynb`
+**Notebook:** `notebooks/Final_CNN_Text_1.ipynb`
 
 - **Input:** `data/cleaned_combined_emails.csv`
 - Builds a character-level vocabulary and trains a 4-block 1D CNN on tokenized email text
@@ -231,7 +231,7 @@ Run the notebooks in order. Each phase produces artifacts consumed by the next.
 
 #### 1B. Image Specialist CNN
 
-**Notebook:** `notebooks/phase1_image_specialist_cnn.ipynb`
+**Notebook:** `notebooks/Final_CNN_Images_Custom.ipynb`
 
 - **Input:** OpenLogo brand logo dataset (download separately — see note below)
 - Trains a VGG-style 4-block 2D CNN on 224×224 logo images
@@ -240,13 +240,13 @@ Run the notebooks in order. Each phase produces artifacts consumed by the next.
 
 > **OpenLogo dataset:** Not included due to size (~2 GB). Download from [qmul-openlogo.github.io](https://qmul-openlogo.github.io/) and set the path in the notebook.
 
-**Comparison baseline:** `notebooks/phase1_image_resnet18_baseline.ipynb` — uses ResNet18 transfer learning (97.43% accuracy on the email classification task).
+**Comparison baseline:** `notebooks/Final_CNN_Images_Resnet18.ipynb` — uses ResNet18 transfer learning (97.43% accuracy on the email classification task).
 
 ---
 
 ### Phase 2 — Multimodal Data Integration
 
-**Notebook:** `notebooks/phase2_multimodal_data_integration.ipynb`
+**Notebook:** `notebooks/dual_tower_text_features.ipynb`
 
 - Extracts brand names from each email using `src/brand_extractor.py`
 - Maps each email to its most relevant brand logo file path via `data/brand_to_images.json`
@@ -257,7 +257,7 @@ Run the notebooks in order. Each phase produces artifacts consumed by the next.
 
 ### Phase 3 — Fusion Model Training
 
-**Notebook:** `notebooks/phase3_fusion_model_training.ipynb`
+**Notebook:** `notebooks/train_fusion3.ipynb`
 
 - Loads pre-trained text and image tower weights from Phase 1
 - **Stage 1:** Freezes both towers; trains only the fusion classifier and metadata MLP
